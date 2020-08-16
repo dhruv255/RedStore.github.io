@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> All products - RedStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar{
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+    nav{
+        flex: 1;
+        text-align: right;
+    }
+    nav ul{
+        display: inline-block;
+        list-style-type: none;
+    }
+    nav ul li{
+        display: inline-block;
+        margin-right: 20px;
+    }
+    a{
+        text-decoration: none;
+        color: #555;
+    }
+    p{
+        color: #555;
+        text-align: center;
+    }
+    .container{
+        max-width: 1300px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .row{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .col-2{
+        flex-basis: 50%;
+        min-width: 300px;
+    }
+    .col-2 img{
+        max-width: 70%;
+        padding: 50px 0;
+    }
+    .col-2 h1{
+        font-size: 50px;
+        line-height: 60px;
+        margin: 25px 0;
+        text-align: center;
+    }
+    .btn{
+        display: inline-block;
+        background: #ff523b;
+        color: #fff;
+        padding: 8px 30px;
+        margin: 30p 0;
+        border-radius: 30px;
+        text-align: center;
+        transition: 0.5s;
+        bottom: 0;
+        position: static;
+    }
+    h4{
+        color: #555;
+        font-weight: normal;
+    }
+    .col-4 p{
+        font-size: 14px;
+    }
+    .rating .fa{
+        color: orangered;
+    }
+
+    .btn:hover{
+        background: #563434;
+    }
+    .header{
+        background: radial-gradient(#fff, #ffd6d6);
+    }
+    .header .row{
+        margin-top: 70px;
+    }
+    .categories{
+        margin: 70px 0;
+    }
+    .col-3{
+        flex-basis: 30%;
+        min-width: 250px;
+        margin-bottom: 30px;
+    }
+    .col-3 img{
+        width: 100%;
+    }
+    .small-container{
+        max-width: 1080px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .col-4{
+        flex-basis: 25%;
+        padding: 10px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.5s;
+    }
+    .col-4 img{
+        width: 100%;
+    }
+    .title{
+        text-align: center;
+        margin: 0 auto 80px;
+        position: relative;
+        line-height: 60px;
+        color: #555;
+    }
+    title::after{
+        content: '';
+        background: #ff523b;
+        width: 80px;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .col-4:hover{
+        transform: translateY(-30px);
+    }
+
+    /*---------offer---------*/
+    .offer{
+        background: radial-gradient(#fff, #ffd6d6);
+        margin-top: 80px;
+        padding: 30px 0;
+    }
+    small{
+        color: #555;
+    }
+
+    /*---------testimonial---------*/
+    .testimonial{
+        padding-top: 100px;
+    }
+    .testimonial .col-3{
+        text-align: center;
+        padding: 40px 20px;
+        box-shadow: 0 0 70px 0px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+    .testimonial .col-3 img{
+        width: 50px;
+        margin-top: 20px;
+        border-radius: 50%;
+    }
+    .testimonial .col-3:hover{
+        transform: translateY(-30px);
+    }
+    .fa.fa-quote-left{
+        font-size: 101%;
+        color: #ff523b;
+    }
+    .col-3 p{
+        font-size: 12px;
+        margin: 12px 0;
+        color: #777;
+    }
+    .testimonial .col-3{
+        font-weight: 600;
+        color: #ff523b;
+        font-size: 16px;
+    }
+
+    /*---------brands---------*/
+    .brands{
+        margin: 100px auto;
+    }
+    .col-5{
+        width: 200px;
+    }
+    .col-5 img{
+        cursor: pointer; 
+        filter: grayscale(100%);           
+    }
+    .col-5 img:hover{
+        filter: grayscale(0);
+    }
+    /*---------footer---------*/
+
+    .footer{
+        background: #000;
+        color: #8a8a8a;
+        font-size: 14px;
+        padding: 60px 0 20px;
+    }
+    .footer p{
+        color: #8a8a8a;
+    }
+    .footer h3{
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+    .footer-col-1{
+        flex-basis: 30%;
+    }
+    .footer-col-2{
+        flex: 1;
+        text-align: center;
+    }
+    .footer-col-2 img{
+        width: 180px;
+        margin-bottom: 20px;
+    }
+    .footer-col-3, .footer-col-4{
+        flex-basis: 12%;
+        text-align: center;
+    }
+    ul{
+        list-style-type: none;
+    }
+    .app-logo{
+        margin-top: 20px;
+        cursor: pointer;
+        
+    }
+    .app-logo img{
+        width: 140px;
+    }
+    .footer hr{
+        border: none;
+        background: #b5b5b5;
+        height: 1px;
+        margin: 20px 0;
+    }
+    .menu-icon{
+        width: 28px;
+        margin-left: 20px;
+    }
+
+    /*----------- All products -----------*/
+    .row-2{
+        justify-content: space-between;
+        margin: 100px auto 50px;
+    }
+    select{
+        border: 1px solid #ff523b;
+        padding: 5px;
+    }
+    select:focus{
+        outline: none;
+    }
+    .page-btn{
+        margin: 0 auto 80px;
+    }
+    .page-btn span{
+        display: inline-block;
+        border: 1px solid #ff523b;
+        margin-left: 10px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+    }
+    .page-btn span:hover{
+        background: #ff523b;
+        color: white;
+    }
+
+    /*-----------single product detail-----------*/
+
+    .single product{
+        margin-top: 80px;
+    }
+    .single product .col-2 img{
+        padding: 0;
+    }
+    .single product .col-2 img{
+        padding: 20px;
+    }
+
+
+
+
+
+        /*---media query for less than 600 screen size---*/
+        @media only screen and (max-width: 600px){
+        .row{
+            text-align: center;
+        }
+        .col-2, .col-3, .col-4{
+            flex-basis: 100%;
+        }
+        }
+        .single-product h4{
+            margin: 20px 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .single-product select{
+            display: block;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .single-product input{
+            width: 50px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 20px;
+            margin-right: 10px;
+            border: 1px solid #ff523b   ;
+        }
+        input:focus{
+            outline: none;
+        }
+        .single-product .fa fa-indent{
+            color: #ff523b;
+            margin-left: 10px;
+        }
+
+        .small-img-row{
+            display: flex;
+            justify-content: space-between;         
+        }
+        .small-img-col{
+            flex-basis: 24%;
+            cursor: pointer;
+
+        }
+
+</style>
+<body>
+
+
+
+    <div class="container">
+
+    </div>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" width="125px">
+        </div>
+        <nav>
+            <a href="cart.html"><img src="cart.png" width="30px" height="30px">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </div>
+</div> 
+ 
+<!---------single product detail--------->
+
+<div class="small-container single product">
+    <div class="row">
+        <div class="col-2">
+            <img src="product-2.jpg" width="100%" id="product-img">
+            
+        </div>
+        <div class="col-2">
+            <p>sports / shoes</p>
+            <h1>black HRX shoes</h1>
+            <h4>$50.00</h4>
+            <select>
+                <option>select size</option>
+                <option>XXL</option>
+                <option>XL</option>
+                <option>LARGE</option>
+                <option>MEDIUM</option>
+                <option>SMALL</option>
+            </select>
+            <input type="number" value="1">
+            <a href="" class="btn">Add to cart</a>
+
+            <h3>Product Detail <i class="fa fa-indent"></i></h3>
+            <br>
+            <p>Give your summer wardrobe a style upgrade with the HRX Men's Active shoes.Team it with a pair of shorts for your morning Workout or a denims for an evening out with the guys</p>
+        </div>
+    </div>
+</div>
+
+            <div class="row">
+                <div class="col-4">
+                    <img src="product-9.JPG" >
+                    <h4>black bamba watch</h4>
+                    <div class="rating"></div>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>$50.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="product-8.jpg" >
+                    <h4>black fossil watch</h4>
+                    <div class="rating"></div>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <p>$50.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="product-3.JPG" >
+                    <h4>gym pant</h4>
+                    <div class="rating"></div>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o" ></i>
+                    <i class="fa fa-star-o" ></i>
+                    <p>$60.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="product-4.JPG" >
+                    <h4>blue printed T-shirt</h4>
+                    <div class="rating"></div>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <p>$50.00</p>
+                </div>
+            </div>
+  
+        </div> 
+
+    </div>
+<!---------footer--------->
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App </h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="play-store.png">
+                    <img src="app-store.png">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="logo-white.png">
+                <p>Our purpose Is To Sustainable Make the pleasure and Benifit of sports Accessible to the many</p>
+            </div>
+            <div class="footer-col-2">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>coupons</li>
+                    <li>Blog Post</li>
+                    <li>return Policy</li>
+                    <li>join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>facebook</li>
+                    <li>twitter</li>
+                    <li>instragram</li>
+                    <li>youtube</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="CopyRight">CopyRight 2020 © RedStore Enterprises. Al right reserved.Website Design by Dhruv Dhage</p>
+</div>
+<!---------js for toggle menu--------->
+<script>
+    var MenuItems = Document.getElementById("MenuItems");
+
+    menuItems.style.MaxHeight == "0px";
+
+    function menutogoggle(){
+        if(MenuItems.style.MaxHeight == "0px")
+    
+    {
+        MenuItems.style.maxheight = "200px";
+    }
+    else
+    {
+        MenuItems.style.maxheight = "0px";
+    }
+</script>
+
+
+<!---------js for product gallery--------->
+<script>
+var productIMG = document.getElementById("productIMG");
+var smallIMG = document.getElementsByClassName("small-img");
+
+smallIMG[0].oneClick = function()
+{
+    productIMG.src = smallIMG[0].src;
+}
+smallIMG[1].oneClick = function()
+{
+    productIMG.src = smallIMG[1].src;
+}
+smallIMG[2].oneClick = function()
+{
+    productIMG.src = smallIMG[2].src;
+}
+smallIMG[3].oneClick = function()
+{
+    productIMG.src = smallIMG[3].src;
+}
+
+
+</script>
+
+</body>
+</html>
